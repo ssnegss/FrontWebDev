@@ -13,7 +13,12 @@ const useStyles = makeStyles({
   table: {
       textAlign: 'center',
       padding: '0.9rem',
+      fontSize: '0.9rem',
+      fontWeight: '600'
   },
+  tableHeader: {
+    backgroundColor: "#D0DBD5"
+},
 });
 
 function createData(sunday, monday, tuesday, wednesday, thursday, friday, saturday) {
@@ -42,7 +47,7 @@ export default function DenseTable() {
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table}>
-        <TableHead>
+        <TableHead className={classes.tableHeader}>
           <TableRow>
             <TableCell className={classes.table}>Sunday</TableCell>
             <TableCell className={classes.table}>Monday</TableCell>

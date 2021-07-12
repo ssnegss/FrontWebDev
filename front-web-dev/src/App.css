@@ -17,6 +17,9 @@ body {
   padding-top: 1rem;
 }
 
-.mainContainer th, td {
+.mainContainer td {
+  border: 1px solid rgb(0, 0, 0);
+}
+.mainContainer th {
   border: 1px solid rgb(0, 0, 0);
 }
