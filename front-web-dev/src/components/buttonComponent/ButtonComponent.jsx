@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         width: '7rem',
         borderRadius: '2px',
-        height: "2.5rem",
+        height: "2.2rem",
     },
 }));
 
