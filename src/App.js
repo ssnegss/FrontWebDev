@@ -1,7 +1,7 @@
 import './App.css';
 import { TableComponent as Table } from '../src/components/TableComponent/TableComponent'
 import { ButtonComponent as Button } from '../src/components/ButtonComponent/ButtonComponent'
-import { SelectComponent as Select } from '../src/components/SelectComponent/SelectComponent'
+import { TextFieldComponent as WeekCalendar } from '../src/components/TextFieldComponent/TextFieldComponent'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <div className="mainContainer">
         <div className="navContainer">
           <Button buttonName="back" />
-          <Select />
+          <WeekCalendar />
           <Button buttonName="forward" />
         </div>
         <Table />
