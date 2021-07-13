@@ -41,7 +41,7 @@ const rows = [
   createData("21:00", "21:00", "21:00", "21:00", "21:00", "21:00", "21:00"),
 ];
 
-export default function DenseTable() {
+export const TableComponent = () => {
   const classes = useStyles();
 
   return (
