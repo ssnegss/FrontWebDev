@@ -1,13 +1,18 @@
 import './App.css';
 import React, { useState } from "react";
-import { TableComponent as Table } from '../src/components/TableComponent/TableComponent'
-import { ButtonComponent as Button } from '../src/components/ButtonComponent/ButtonComponent'
-import { TextFieldComponent as WeekCalendar } from '../src/components/TextFieldComponent/TextFieldComponent'
+import { TableComponent as Table } from '../src/components/TableComponent/TableComponent';
+import { ButtonComponent as Button } from '../src/components/ButtonComponent/ButtonComponent';
+import { TextFieldComponent as WeekCalendar } from '../src/components/TextFieldComponent/TextFieldComponent';
+import { ModalBoxComponent as ModalBox } from '../src/components/ModalBoxComponent/ModalBoxComponent';
 
 function App() {
 
   const handleDateChange = (e) => {
     setValue(e.target.value);
+  }
+
+  const handleModalBoxOpen = () => {
+    setModalActive(true)
   }
 
   // const moveBack = (e) => {
@@ -17,7 +22,7 @@ function App() {
   // const moveForward = (e) => {
   //   setValue();
   // }
-
+  const [modalActive, setModalActive] = useState(false);
   const [value, setValue] = useState("");
 
   return (
@@ -26,7 +31,7 @@ function App() {
         <div className="navContainer">
           <Button
             buttonName="back"
-            // onClick={moveBack}
+          // onClick={moveBack}
           />
           <WeekCalendar
             value={value}
@@ -34,10 +39,14 @@ function App() {
           />
           <Button
             buttonName="forward"
-            // onClick={moveForward}
+          // onClick={moveForward}
           />
         </div>
         <Table />
+        <button onClick={handleModalBoxOpen}>CALL MODAL BOX</button>
+        <ModalBox active={modalActive} setActive={setModalActive}>
+          <h1> MODAL BOX </h1>
+        </ModalBox>
       </div>
     </div>
   );
