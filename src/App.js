@@ -1,18 +1,18 @@
 import './App.css';
-import DenseTable from '../src/components/TableComponent/TableComponent'
-import { ButtonComponent } from '../src/components/ButtonComponent/ButtonComponent'
-import { SelectComponent } from '../src/components/SelectComponent/SelectComponent'
+import { TableComponent as Table } from '../src/components/TableComponent/TableComponent'
+import { ButtonComponent as Button } from '../src/components/ButtonComponent/ButtonComponent'
+import { SelectComponent as Select } from '../src/components/SelectComponent/SelectComponent'
 
 function App() {
   return (
     <div className="App">
       <div className="mainContainer">
         <div className="navContainer">
-          <ButtonComponent buttonName="back" />
-          <SelectComponent />
-          <ButtonComponent buttonName="forward" />
+          <Button buttonName="back" />
+          <Select />
+          <Button buttonName="forward" />
         </div>
-        <DenseTable />
+        <Table />
       </div>
     </div>
   );
