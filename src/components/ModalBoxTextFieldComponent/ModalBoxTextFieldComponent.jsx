@@ -4,12 +4,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
-        minWidth: '10rem',
+        minWidth: '15rem',
         margin: '0px 2rem',
         backgroundColor: 'white',
         borderRadius: '2px',
     },
     selectTheme: {
+        minWidth: '15rem',
         height: '2.5rem',
         padding: "1rem 1rem",
         borderRadius: '2px',

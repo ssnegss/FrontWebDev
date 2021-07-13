@@ -9,9 +9,12 @@ const useStyles = makeStyles((theme) => ({
         minWidth: '10rem',
         margin: '0px 2rem',
         backgroundColor: 'white',
+        height: '2.5rem',
+        minWidth: '15rem'
     },
     selectTheme: {
-        height: '2.2rem',
+        minWidth: '15rem',
+        height: '2.5rem',
         backgroundColor: 'rgb(246, 246, 246)'
     }
 }));
