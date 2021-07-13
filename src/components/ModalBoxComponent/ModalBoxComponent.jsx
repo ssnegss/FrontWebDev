@@ -10,23 +10,31 @@ export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => 
             <div className="modal__content" onClick={e => e.stopPropagation()}>
                 <h1 className="modalBox__header">{header}</h1>
                 <h3>Name</h3>
-                <TextField></TextField>
+                <TextField />
                 <h3>Time</h3>
-                <TextField></TextField>
+                <TextField />
                 <h3>Pictogram</h3>
                 <Select></Select>
                 <h1>PICTURE</h1>
                 <h3>Replay</h3>
-                <Select></Select>
+                <Select
+                    items={
+                        [{ name: 'No', index: '' },
+                        { name: 'Every day', index: '0' },
+                        { name: 'Every week', index: '1' },
+                        { name: 'Every month', index: '2' },
+                        { name: 'Every year', index: '3' }
+                        ]}
+                />
                 <h3>Reminder</h3>
                 <Select
-                 items={
-                     [{name: 'No'},
-                     {name: 'Every day'},
-                     {name: 'Every week'},
-                     {name: 'Every month'},
-                     {name: 'Every year'}
-                     ]}
+                    items={
+                        [{ name: 'Off', index: '' },
+                        { name: '15min', index: '0' },
+                        { name: '30min', index: '1' },
+                        { name: '45min', index: '2' },
+                        { name: '60min', index: '3' }
+                        ]}
                 />
                 <Button className="modalBox__button" buttonName={buttonName}></Button>
             </div>

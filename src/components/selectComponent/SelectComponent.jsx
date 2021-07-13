@@ -34,7 +34,7 @@ export const SelectComponent = (props) => {
                     onChange={handleChange}
                 >
                     {props.items && props.items.map((menuItem, index) => (
-                        <MenuItem value={index}>{menuItem.name}</MenuItem>
+                        <MenuItem key={index} value={menuItem.index}>{menuItem.name}</MenuItem>
                     ))}
                 </Select>
             </FormControl>
