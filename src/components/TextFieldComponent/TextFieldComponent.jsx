@@ -1,21 +1,9 @@
 import React from 'react';
 import Input from '@material-ui/core/Input';
 import { makeStyles } from '@material-ui/core/styles';
+import { getTextFieldComponentStyles as styles } from './TextFieldComponentStyles';
 
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        minWidth: '10rem',
-        margin: '0px 2rem',
-        backgroundColor: 'white',
-        borderRadius: '2px',
-    },
-    selectTheme: {
-        height: '2.5rem',
-        padding: "1rem 1rem",
-        borderRadius: '2px',
-        backgroundColor: 'rgb(246, 246, 246)'
-    }
-}));
+const useStyles = makeStyles((theme) => styles(theme));
 
 export const TextFieldComponent = (props) => {
     const classes = useStyles();
@@ -29,7 +17,7 @@ export const TextFieldComponent = (props) => {
                 type="week"
                 variant="outlined"
                 value={props.value}
-                onChange = {props.onChange}
+                onChange={props.onChange}
             />
         </div>
     )

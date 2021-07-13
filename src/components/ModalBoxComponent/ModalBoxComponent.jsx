@@ -5,6 +5,7 @@ import { SelectComponent as Select } from '../SelectComponent/SelectComponent'
 import './ModalBoxComponent.css';
 
 export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => {
+
     return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
@@ -14,7 +15,21 @@ export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => 
                 <h3>Time</h3>
                 <TextField className="modalBox__time" />
                 <h3>Pictogram</h3>
-                <Select className="modalBox__pictogram" />
+                <Select
+                    className="modalBox__pictogram"
+                    items={
+                        [{ name: 'Awakening', index: '0' },
+                        { name: 'Charging', index: '1' },
+                        { name: 'Breakfast', index: '2' },
+                        { name: 'Lessons', index: '3' },
+                        { name: 'Lunch', index: '4' },
+                        { name: 'Daytime sleep', index: '5' },
+                        { name: 'Walk', index: '6' },
+                        { name: 'Supper', index: '7' },
+                        { name: 'Free time', index: '2' },
+                        { name: 'Sleep', index: '2' },
+                        ]}
+                />
                 <h1>PICTURE</h1>
                 <h3>Replay</h3>
                 <Select
@@ -38,7 +53,9 @@ export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => 
                         { name: '60min', index: '3' }
                         ]}
                 />
-                <Button className="modalBox__button" buttonName={buttonName}></Button>
+                <div className="modalBox__buttonContainer">
+                    <Button buttonName={buttonName}></Button>
+                </div>
             </div>
         </div>
     );

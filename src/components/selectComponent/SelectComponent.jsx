@@ -3,21 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { getSelectComponentStyles as styles } from './SelectComponentStyles'
 
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        minWidth: '10rem',
-        margin: '0px 2rem',
-        backgroundColor: 'white',
-        height: '2.5rem',
-        minWidth: '15rem'
-    },
-    selectTheme: {
-        minWidth: '15rem',
-        height: '2.5rem',
-        backgroundColor: 'rgb(246, 246, 246)'
-    }
-}));
+const useStyles = makeStyles((theme) => styles(theme));
 
 export const SelectComponent = (props) => {
     const classes = useStyles();

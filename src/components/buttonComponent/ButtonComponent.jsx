@@ -1,24 +1,19 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { makeButtonComponentStyles as styles } from './ButtonComponentStyles'
 
-const useStyles = makeStyles((theme) => ({
-    button: {
-        width: '7rem',
-        borderRadius: '2px',
-        height: "2.5rem",
-    },
-}));
+const useStyles = makeStyles((theme) => styles(theme));
 
 export const ButtonComponent = (props) => {
     const classes = useStyles();
 
     return (
-        <Button 
-        className={classes.button} 
-        variant="contained" 
-        color="primary" 
-        onClick={props.onClick}>
+        <Button
+            className={classes.button}
+            variant="contained"
+            color="primary"
+            onClick={props.onClick}>
             {props.buttonName}
         </Button>
     );

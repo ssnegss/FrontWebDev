@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { TableComponent as Table } from '../src/components/TableComponent/TableComponent';
 import { ButtonComponent as Button } from '../src/components/ButtonComponent/ButtonComponent';
 import { TextFieldComponent as WeekCalendar } from '../src/components/TextFieldComponent/TextFieldComponent';
-import { ModalBoxComponent as ModalBox} from '../src/components/ModalBoxComponent/ModalBoxComponent';
+import { ModalBoxComponent as ModalBox } from '../src/components/ModalBoxComponent/ModalBoxComponent';
 
 function App() {
 

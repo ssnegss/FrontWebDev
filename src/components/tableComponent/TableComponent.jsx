@@ -7,19 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import './TableComponent.css'
+import { getTableComponentStyles as styles } from './TableComponentStyles';
 
-const useStyles = makeStyles({
-  table: {
-    textAlign: 'center',
-    padding: '0.9rem',
-    fontSize: '0.9rem',
-    fontWeight: '600'
-  },
-  tableHeader: {
-    backgroundColor: "#D0DBD5"
-  },
-});
+const useStyles = makeStyles((theme) => styles(theme))
 
 function createData(sunday, monday, tuesday, wednesday, thursday, friday, saturday) {
   return { sunday, monday, tuesday, wednesday, thursday, friday, saturday };
