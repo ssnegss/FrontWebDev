@@ -1,7 +1,7 @@
 import './App.css';
-import DenseTable from '../src/components/tableComponent/TableComponent'
-import { ButtonComponent } from '../src/components/buttonComponent/ButtonComponent'
-import { SelectComponent } from '../src/components/selectComponent/SelectComponent'
+import DenseTable from '../src/components/TableComponent/TableComponent'
+import { ButtonComponent } from '../src/components/ButtonComponent/ButtonComponent'
+import { SelectComponent } from '../src/components/SelectComponent/SelectComponent'
 
 function App() {
   return (
