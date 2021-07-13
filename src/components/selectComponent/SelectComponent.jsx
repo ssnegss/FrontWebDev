@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const SelectComponent = () => {
+export const SelectComponent = (props) => {
     const classes = useStyles();
-    const [week, setDate] = React.useState('');
+    const [data, setData] = React.useState('');
 
     const handleChange = (event) => {
-        setDate(event.target.value);
+        setData(event.target.value);
     };
 
     return (
@@ -30,12 +30,12 @@ export const SelectComponent = () => {
                 <Select
                     className={classes.selectTheme}
                     displayEmpty
-                    value={week}
+                    value={data}
                     onChange={handleChange}
                 >
-                    <MenuItem value={1}>12.07-18.07</MenuItem>
-                    <MenuItem value={2}>19.07-25.07</MenuItem>
-                    <MenuItem value={3}>26.07-01.08</MenuItem>
+                    {props.items && props.items.map((menuItem, index) => (
+                        <MenuItem value={index}>{menuItem.name}</MenuItem>
+                    ))}
                 </Select>
             </FormControl>
         </div>

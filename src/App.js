@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { TableComponent as Table } from '../src/components/TableComponent/TableComponent';
 import { ButtonComponent as Button } from '../src/components/ButtonComponent/ButtonComponent';
 import { TextFieldComponent as WeekCalendar } from '../src/components/TextFieldComponent/TextFieldComponent';
-import { ModalBoxComponent as ModalBox } from '../src/components/ModalBoxComponent/ModalBoxComponent';
+import { ModalBoxComponent as ModalBox} from '../src/components/ModalBoxComponent/ModalBoxComponent';
 
 function App() {
 
@@ -44,8 +44,7 @@ function App() {
         </div>
         <Table />
         <button onClick={handleModalBoxOpen}>CALL MODAL BOX</button>
-        <ModalBox active={modalActive} setActive={setModalActive}>
-          <h1> MODAL BOX </h1>
+        <ModalBox active={modalActive} setActive={setModalActive} header="Header activity" buttonName="ButtonName">
         </ModalBox>
       </div>
     </div>
