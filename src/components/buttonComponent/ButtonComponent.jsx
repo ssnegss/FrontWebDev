@@ -14,7 +14,11 @@ export const ButtonComponent = (props) => {
     const classes = useStyles();
 
     return (
-        <Button className={classes.button} variant="contained" color="primary" disableElevation>
+        <Button 
+        className={classes.button} 
+        variant="contained" 
+        color="primary" 
+        onClick={props.onClick}>
             {props.buttonName}
         </Button>
     );

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export const TextFieldComponent = () => {
+export const TextFieldComponent = (props) => {
     const classes = useStyles();
 
     return (
@@ -28,7 +28,8 @@ export const TextFieldComponent = () => {
                 label="Search field"
                 type="week"
                 variant="outlined"
-                displayEmpty
+                value={props.value}
+                onChange = {props.onChange}
             />
         </div>
     )
