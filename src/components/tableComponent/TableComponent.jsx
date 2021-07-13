@@ -11,18 +11,18 @@ import './tableComponent.css'
 
 const useStyles = makeStyles({
   table: {
-      textAlign: 'center',
-      padding: '0.9rem',
-      fontSize: '0.9rem',
-      fontWeight: '600'
+    textAlign: 'center',
+    padding: '0.9rem',
+    fontSize: '0.9rem',
+    fontWeight: '600'
   },
   tableHeader: {
     backgroundColor: "#D0DBD5"
-},
+  },
 });
 
 function createData(sunday, monday, tuesday, wednesday, thursday, friday, saturday) {
-  return {sunday, monday, tuesday, wednesday, thursday, friday, saturday};
+  return { sunday, monday, tuesday, wednesday, thursday, friday, saturday };
 }
 
 const rows = [
