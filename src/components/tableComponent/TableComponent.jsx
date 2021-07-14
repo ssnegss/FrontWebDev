@@ -51,13 +51,13 @@ export const TableComponent = () => {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.name}>
-              <TableCell className={classes.table}>{row.sunday}</TableCell>
-              <TableCell className={classes.table}>{row.monday}</TableCell>
-              <TableCell className={classes.table}>{row.tuesday}</TableCell>
-              <TableCell className={classes.table}>{row.wednesday}</TableCell>
-              <TableCell className={classes.table}>{row.thursday}</TableCell>
-              <TableCell className={classes.table}>{row.friday}</TableCell>
-              <TableCell className={classes.table}>{row.saturday}</TableCell>
+              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.sunday}/></form></TableCell>
+              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.monday}/></form></TableCell>
+              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.tuesday}/></form></TableCell>
+              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.wednesday}/></form></TableCell>
+              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.thursday}/></form></TableCell>
+              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.friday}/></form></TableCell>
+              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.saturday}/></form></TableCell>
             </TableRow>
           ))}
         </TableBody>
