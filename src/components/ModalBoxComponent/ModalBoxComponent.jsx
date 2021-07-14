@@ -1,7 +1,8 @@
 import React from 'react';
 import { ButtonComponent as Button } from '../ButtonComponent/ButtonComponent';
 import { ModalBoxTextFieldComponent as TextField } from '../ModalBoxTextFieldComponent/ModalBoxTextFieldComponent';
-import { SelectComponent as Select } from '../SelectComponent/SelectComponent'
+import { SelectComponent as Select } from '../SelectComponent/SelectComponent';
+import { ModalBoxTimeFieldComponent as TimeField } from '../ModalBoxTimeFieldComponent/ModalBoxTimeFieldComponent';
 import './ModalBoxComponent.css';
 
 export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => {
@@ -13,7 +14,12 @@ export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => 
                 <h3>Name</h3>
                 <TextField className="modalBox__name" />
                 <h3>Time</h3>
-                <TextField className="modalBox__time" />
+                <div className="modalBox__timeContainer">
+                    <h3 className="modalBox__time_from">From</h3>
+                    <TimeField className="modalBox__time" />
+                    <h3 className="modalBox__time_to">to</h3>
+                    <TimeField className="modalBox__time" />
+                </div>
                 <h3>Pictogram</h3>
                 <Select
                     className="modalBox__pictogram"

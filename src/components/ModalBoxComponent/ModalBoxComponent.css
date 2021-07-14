@@ -36,6 +36,19 @@ h3 {
     margin: 1rem 2rem;
 }
 
+.modalBox__timeContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.modalBox__time_from {
+    margin-right: 0;
+}
+
+.modalBox__time_to {
+    margin: auto 0;
+}
+
 .modalBox__buttonContainer {
     display: flex;
     align-items: center;
