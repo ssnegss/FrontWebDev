@@ -49,6 +49,12 @@ h3 {
     margin: auto 0;
 }
 
+.modalBox__pictogram {
+    margin: 1rem 2rem;
+    width: 9rem;
+    height: 9rem;
+}
+
 .modalBox__buttonContainer {
     display: flex;
     align-items: center;

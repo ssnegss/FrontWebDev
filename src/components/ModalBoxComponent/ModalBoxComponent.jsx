@@ -36,7 +36,7 @@ export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => 
                         { name: 'Sleep', index: '2' },
                         ]}
                 />
-                <h1>PICTURE</h1>
+                <div className="modalBox__pictogram"></div>
                 <h3>Replay</h3>
                 <Select
                     className="modalBox__replay"
