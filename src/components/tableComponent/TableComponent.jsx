@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,7 +8,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getTableComponentStyles as styles } from './TableComponentStyles';
-
+import { AddModalBoxComponent as Add, EditModalBoxComponent as Edit } from '../SelectModalBoxComponent/SelectModalBoxComponent'
+  
 const useStyles = makeStyles((theme) => styles(theme))
 
 function createData(sunday, monday, tuesday, wednesday, thursday, friday, saturday) {
@@ -31,37 +32,63 @@ const rows = [
   createData("21:00", "21:00", "21:00", "21:00", "21:00", "21:00", "21:00"),
 ];
 
-export const TableComponent = () => {
+export const TableComponent = (props) => {
+
+  const handleModalBoxAdd = () => {
+    setModalAddActive(true)
+  }
+  
+  const handleModalBoxEdit = () => {
+    setModalEditActive(true)
+  }
+  
+  const [modalAddActive, setModalAddActive] = useState(false);
+  const [modalEditActive, setModalEditActive] = useState(false);
+
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table}>
-        <TableHead className={classes.tableHeader}>
-          <TableRow>
-            <TableCell className={classes.table}>Sunday</TableCell>
-            <TableCell className={classes.table}>Monday</TableCell>
-            <TableCell className={classes.table}>Tuesday</TableCell>
-            <TableCell className={classes.table}>Wednesday</TableCell>
-            <TableCell className={classes.table}>Thursday</TableCell>
-            <TableCell className={classes.table}>Friday</TableCell>
-            <TableCell className={classes.table}>Saturday</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.sunday}/></form></TableCell>
-              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.monday}/></form></TableCell>
-              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.tuesday}/></form></TableCell>
-              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.wednesday}/></form></TableCell>
-              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.thursday}/></form></TableCell>
-              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.friday}/></form></TableCell>
-              <TableCell className={classes.table}><form><input className={classes.tableRow} type='submit' value={row.saturday}/></form></TableCell>
+    <div>
+      <TableContainer component={Paper}>
+        <Table className={classes.table}>
+          <TableHead className={classes.tableHeader}>
+            <TableRow>
+            {props.items && props.items.map((weekDays, index) => (
+              <TableCell key={index} className={classes.table}>{weekDays.day}</TableCell>
+            ))}
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell className={classes.table}>
+                    <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                </TableCell>
+                <TableCell className={classes.table}>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                </TableCell>
+                <TableCell className={classes.table}>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                </TableCell>
+                <TableCell className={classes.table}>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                </TableCell>
+                <TableCell className={classes.table}>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                </TableCell>
+                <TableCell className={classes.table}>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                </TableCell>
+                <TableCell className={classes.table}>
+                  <button className={classes.tableRow} onClick={handleModalBoxEdit}>{row.sunday}</button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <Add active={modalAddActive} setActive={setModalAddActive} />
+      <Edit active={modalEditActive} setActive={setModalEditActive} />
+    </div>
   );
 }

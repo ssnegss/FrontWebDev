@@ -42,7 +42,17 @@ function App() {
           // onClick={moveForward}
           />
         </div>
-        <Table />
+        <Table
+          items={
+            [{ day: 'Sunday'},
+            { day: 'Monday'},
+            { day: 'Tuesday'},
+            { day: 'Wednesday'},
+            { day: 'Thursday'},
+            { day: 'Friday'},
+            { day: 'Saturday'},
+            ]}
+        />
         <button onClick={handleModalBoxOpen}>CALL MODAL BOX</button>
         <ModalBox active={modalActive} setActive={setModalActive} header="Header activity" buttonName="ButtonName">
         </ModalBox>
