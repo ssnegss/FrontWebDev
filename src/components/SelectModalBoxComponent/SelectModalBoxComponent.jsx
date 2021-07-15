@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { ModalBoxComponent as ModalBox } from '../ModalBoxComponent/ModalBoxComponent'
-import './SelectModalBoxComponent.css'
+import { ModalBoxComponent as ModalBox } from '../ModalBoxComponent/ModalBoxComponent';
+import './SelectModalBoxComponent.css';
 
 export const AddModalBoxComponent = ({ active, setActive }) => {
     const handleModalBoxOpen = () => {
-        setModalActive(true)
+        setActive(false)
+        setModalAddActive(true)
     }
 
-    const [modalActive, setModalActive] = useState(false);
+    const [modalAddActive, setModalAddActive] = useState(false);
 
     return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modal__contentAdd" onClick={e => e.stopPropagation()}>
                 <button className="modal__button" onClick={handleModalBoxOpen}>Add</button>
-                <ModalBox active={modalActive} setActive={setModalActive} header="Add activity" buttonName="Add"></ModalBox>
+                <ModalBox active={modalAddActive} setActive={setModalAddActive} header="Add activity" buttonName="Add"></ModalBox>
             </div>
         </div>
     );
@@ -21,17 +22,17 @@ export const AddModalBoxComponent = ({ active, setActive }) => {
 
 export const EditModalBoxComponent = ({ active, setActive }) => {
     const handleModalBoxOpen = () => {
-        setModalActive(true)
+        setModalEditActive(true)
     }
 
-    const [modalActive, setModalActive] = useState(false);
+    const [modalEditActive, setModalEditActive] = useState(false);
 
     return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modal__contentEdit" onClick={e => e.stopPropagation()}>
                 <button className="modal__button" onClick={handleModalBoxOpen}>Edit</button> <hr />
                 <button className="modal__button">Delete</button>
-                <ModalBox active={modalActive} setActive={setModalActive} header="Edit activity" buttonName="Edit"></ModalBox>
+                <ModalBox active={modalEditActive} setActive={setModalEditActive} header="Edit activity" buttonName="Edit"></ModalBox>
             </div>
         </div>
     );

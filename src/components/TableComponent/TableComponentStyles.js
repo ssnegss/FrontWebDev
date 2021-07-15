@@ -17,7 +17,11 @@ export const getTableComponentStyles = (theme) => {
             cursor: 'pointer',
         },
         tableHeader: {
-            backgroundColor: "#D0DBD5"
+            backgroundColor: "#D0DBD5",
+            textAlign: 'center',
+            padding: '1rem',
+            fontSize: '0.9rem',
+            fontWeight: '600'
         }
     });
 }

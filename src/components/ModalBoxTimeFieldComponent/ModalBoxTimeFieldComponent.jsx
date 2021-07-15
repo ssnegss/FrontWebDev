@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '@material-ui/core/Input';
 import { makeStyles } from '@material-ui/core/styles';
-import { makeModalBoxTimeFieldComponentStyles as styles } from './ModalBoxTimeFieldComponentStyles'
+import { makeModalBoxTimeFieldComponentStyles as styles } from './ModalBoxTimeFieldComponentStyles';
 
 const useStyles = makeStyles((theme) => styles(theme));
 

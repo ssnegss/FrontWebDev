@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getTableComponentStyles as styles } from './TableComponentStyles';
-import { AddModalBoxComponent as Add, EditModalBoxComponent as Edit } from '../SelectModalBoxComponent/SelectModalBoxComponent'
+import { AddModalBoxComponent as Add, EditModalBoxComponent as Edit } from '../SelectModalBoxComponent/SelectModalBoxComponent';
   
 const useStyles = makeStyles((theme) => styles(theme))
 
@@ -54,7 +54,7 @@ export const TableComponent = (props) => {
           <TableHead className={classes.tableHeader}>
             <TableRow>
             {props.items && props.items.map((weekDays, index) => (
-              <TableCell key={index} className={classes.table}>{weekDays.day}</TableCell>
+              <TableCell key={index} className={classes.tableHeader}>{weekDays.day}</TableCell>
             ))}
             </TableRow>
           </TableHead>
