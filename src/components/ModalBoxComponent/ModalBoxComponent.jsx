@@ -39,17 +39,6 @@ export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => 
                         ]}
                 />
                 <div className="modalBox__pictogram"></div>
-                <h3>Replay</h3>
-                <Select
-                    className="modalBox__replay"
-                    items={
-                        [{ name: 'No', index: '' },
-                        { name: 'Every day', index: '0' },
-                        { name: 'Every week', index: '1' },
-                        { name: 'Every month', index: '2' },
-                        { name: 'Every year', index: '3' }
-                        ]}
-                />
                 <h3>Reminder</h3>
                 <Select
                     className="modalBox__reminder"

@@ -13,7 +13,6 @@ export const TextFieldComponent = (props) => {
             <Input
                 className={classes.selectTheme}
                 id="weekField"
-                label="Search field"
                 type="week"
                 variant="outlined"
                 value={props.value}
