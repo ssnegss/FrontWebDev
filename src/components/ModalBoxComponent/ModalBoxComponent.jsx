@@ -6,7 +6,9 @@ import { ModalBoxTimeFieldComponent as TimeField } from '../ModalBoxTimeFieldCom
 import './ModalBoxComponent.css';
 
 export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => {
-
+    const handleModalBoxClose = () => {
+        setActive(false)
+    }
     return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modal__content" onClick={e => e.stopPropagation()}>
@@ -60,7 +62,7 @@ export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => 
                         ]}
                 />
                 <div className="modalBox__buttonContainer">
-                    <Button buttonName={buttonName}></Button>
+                    <Button buttonName={buttonName} onClick={handleModalBoxClose}></Button>
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import './SelectModalBoxComponent.css';
 
 export const AddModalBoxComponent = ({ active, setActive }) => {
     const handleModalBoxOpen = () => {
-        setActive(false)
         setModalAddActive(true)
     }
 
@@ -31,7 +30,7 @@ export const EditModalBoxComponent = ({ active, setActive }) => {
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modal__contentEdit" onClick={e => e.stopPropagation()}>
                 <button className="modal__button" onClick={handleModalBoxOpen}>Edit</button> <hr />
-                <button className="modal__button">Delete</button>
+                <button className="modal__button" onClick={() => setActive(false)}>Delete</button>
                 <ModalBox active={modalEditActive} setActive={setModalEditActive} header="Edit activity" buttonName="Edit"></ModalBox>
             </div>
         </div>
