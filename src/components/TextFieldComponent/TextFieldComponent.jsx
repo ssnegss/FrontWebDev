@@ -12,7 +12,7 @@ export const TextFieldComponent = (props) => {
         <div className={classes.formControl}>
             <Input
                 className={classes.selectTheme}
-                id="outlined-search"
+                id="weekField"
                 label="Search field"
                 type="week"
                 variant="outlined"

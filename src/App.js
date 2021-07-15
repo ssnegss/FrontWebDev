@@ -10,13 +10,15 @@ function App() {
     setValue(e.target.value);
   }
 
-  // const moveBack = (e) => {
-  //   setValue();
-  // }
+  const moveBack = (e) => {
+    document.getElementById("weekField").stepDown(1);
+    setValue(e.target.value);
+  }
 
-  // const moveForward = (e) => {
-  //   setValue();
-  // }
+  const moveForward = (e) => {
+    document.getElementById("weekField").stepUp(1);
+    setValue(e.target.value);
+  }
   const [value, setValue] = useState("");
 
   return (
@@ -25,7 +27,7 @@ function App() {
         <div className="navContainer">
           <Button
             buttonName="back"
-          // onClick={moveBack}
+            onClick={moveBack}
           />
           <WeekCalendar
             value={value}
@@ -33,20 +35,10 @@ function App() {
           />
           <Button
             buttonName="forward"
-          // onClick={moveForward}
+            onClick={moveForward}
           />
         </div>
-        <Table
-          items={
-            [{ day: 'Sunday'},
-            { day: 'Monday'},
-            { day: 'Tuesday'},
-            { day: 'Wednesday'},
-            { day: 'Thursday'},
-            { day: 'Friday'},
-            { day: 'Saturday'},
-            ]}
-        />
+        <Table />
       </div>
     </div>
   );
