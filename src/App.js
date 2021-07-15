@@ -11,10 +11,6 @@ function App() {
     setValue(e.target.value);
   }
 
-  const handleModalBoxOpen = () => {
-    setModalActive(true)
-  }
-
   // const moveBack = (e) => {
   //   setValue();
   // }
@@ -22,7 +18,6 @@ function App() {
   // const moveForward = (e) => {
   //   setValue();
   // }
-  const [modalActive, setModalActive] = useState(false);
   const [value, setValue] = useState("");
 
   return (
@@ -53,9 +48,6 @@ function App() {
             { day: 'Saturday'},
             ]}
         />
-        <button onClick={handleModalBoxOpen}>CALL MODAL BOX</button>
-        <ModalBox active={modalActive} setActive={setModalActive} header="Header activity" buttonName="ButtonName">
-        </ModalBox>
       </div>
     </div>
   );
