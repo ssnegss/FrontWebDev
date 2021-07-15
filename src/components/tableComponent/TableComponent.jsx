@@ -9,11 +9,11 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getTableComponentStyles as styles } from './TableComponentStyles';
 import { AddModalBoxComponent as Add, EditModalBoxComponent as Edit } from '../SelectModalBoxComponent/SelectModalBoxComponent';
-  
+
 const useStyles = makeStyles((theme) => styles(theme))
 
 function createData(sunday, monday, tuesday, wednesday, thursday, friday, saturday) {
-  return { sunday, monday, tuesday, wednesday, thursday, friday, saturday };
+    return { sunday, monday, tuesday, wednesday, thursday, friday, saturday };
 }
 
 const rows = [
@@ -34,14 +34,16 @@ const rows = [
 
 export const TableComponent = (props) => {
 
+  var days = [ {day: 'Sunday'}, {day: 'Monday'}, {day: 'Tuesday'}, {day: 'Wednesday'}, {day: 'Thursday'}, {day: 'Friday'}, {day: 'Saturday'}, ];
+
   const handleModalBoxAdd = () => {
     setModalAddActive(true)
   }
-  
+
   const handleModalBoxEdit = () => {
     setModalEditActive(true)
   }
-  
+
   const [modalAddActive, setModalAddActive] = useState(false);
   const [modalEditActive, setModalEditActive] = useState(false);
 
@@ -53,41 +55,41 @@ export const TableComponent = (props) => {
         <Table className={classes.table}>
           <TableHead className={classes.tableHeader}>
             <TableRow>
-            {props.items && props.items.map((weekDays, index) => (
-              <TableCell key={index} className={classes.tableHeader}>{weekDays.day}</TableCell>
-            ))}
+              {days.map((weekDay, index) => (
+                <TableCell key={index} className={classes.tableHeader}>{weekDay.day}</TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name}>
                 <TableCell className={classes.table}>
-                    <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
-                </TableCell>
-                <TableCell className={classes.table}>
                   <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.monday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.tuesday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.wednesday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.thursday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxEdit}>{row.sunday}</button>
+                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.friday}</button>
+                </TableCell>
+                <TableCell className={classes.table}>
+                  <button className={classes.tableRow} onClick={handleModalBoxEdit}>{row.saturday}</button>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <Add active={modalAddActive} setActive={setModalAddActive} />
+      <Add active={modalAddActive} setActive={setModalAddActive}/>
       <Edit active={modalEditActive} setActive={setModalEditActive} />
     </div>
   );

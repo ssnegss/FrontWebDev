@@ -12,6 +12,7 @@ export const AddModalBoxComponent = ({ active, setActive }) => {
     return (
         <div className={active ? "modal active" : "modal"} onClick={() => setActive(false)}>
             <div className="modal__contentAdd" onClick={e => e.stopPropagation()}>
+                <div> </div>
                 <button className="modal__button" onClick={handleModalBoxOpen}>Add</button>
                 <ModalBox active={modalAddActive} setActive={setModalAddActive} header="Add activity" buttonName="Add"></ModalBox>
             </div>
