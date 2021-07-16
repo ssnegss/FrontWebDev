@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,12 +8,12 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getTableComponentStyles as styles } from './TableComponentStyles';
-import { AddModalBoxComponent as Add, EditModalBoxComponent as Edit } from '../SelectModalBoxComponent/SelectModalBoxComponent';
+import { PopoverAddComponent as PopoverAdd, PopoverEditComponent as PopoverEdit } from '../PopoverComponent/PopoverComponent'
 
 const useStyles = makeStyles((theme) => styles(theme))
 
 function createData(sunday, monday, tuesday, wednesday, thursday, friday, saturday) {
-    return { sunday, monday, tuesday, wednesday, thursday, friday, saturday };
+  return { sunday, monday, tuesday, wednesday, thursday, friday, saturday };
 }
 
 const rows = [
@@ -34,20 +34,29 @@ const rows = [
 
 export const TableComponent = (props) => {
 
-  var days = [ {day: 'Sunday'}, {day: 'Monday'}, {day: 'Tuesday'}, {day: 'Wednesday'}, {day: 'Thursday'}, {day: 'Friday'}, {day: 'Saturday'}, ];
-
-  const handleModalBoxAdd = () => {
-    setModalAddActive(true)
-  }
-
-  const handleModalBoxEdit = () => {
-    setModalEditActive(true)
-  }
-
-  const [modalAddActive, setModalAddActive] = useState(false);
-  const [modalEditActive, setModalEditActive] = useState(false);
+  var days = [{ day: 'Sunday' }, { day: 'Monday' }, { day: 'Tuesday' }, { day: 'Wednesday' }, { day: 'Thursday' }, { day: 'Friday' }, { day: 'Saturday' },];
 
   const classes = useStyles();
+  const [anchorElAdd, setAnchorElAdd] = React.useState(null);
+  const [anchorElEdit, setAnchorElEdit] = React.useState(null);
+
+  const handleClickAdd = (event) => {
+    setAnchorElAdd(event.currentTarget);
+  };
+
+  const handleClickEdit = (event) => {
+    setAnchorElEdit(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorElAdd(null);
+    setAnchorElEdit(null);
+  };
+
+  const openAdd = Boolean(anchorElAdd);
+  const openEdit = Boolean(anchorElEdit);
+  const idAdd = openAdd ? 'simple-popover' : undefined;
+  const idEdit = openEdit ? 'simple-popover' : undefined;
 
   return (
     <div>
@@ -64,33 +73,33 @@ export const TableComponent = (props) => {
             {rows.map((row) => (
               <TableRow key={row.name}>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.sunday}</button>
+                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.sunday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.monday}</button>
+                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.monday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.tuesday}</button>
+                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.tuesday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.wednesday}</button>
+                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.wednesday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.thursday}</button>
+                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.thursday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxAdd}>{row.friday}</button>
+                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.friday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleModalBoxEdit}>{row.saturday}</button>
+                  <button className={classes.tableRow} onClick={handleClickEdit}>{row.saturday}</button>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <Add active={modalAddActive} setActive={setModalAddActive}/>
-      <Edit active={modalEditActive} setActive={setModalEditActive} />
+      <PopoverAdd id={idAdd} open={openAdd} anchorEl={anchorElAdd} handleClose={handleClose}/>
+      <PopoverEdit id={idEdit} open={openEdit} anchorEl={anchorElEdit} handleClose={handleClose}/>
     </div>
   );
 }

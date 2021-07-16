@@ -22,6 +22,6 @@ export const getTableComponentStyles = (theme) => {
             padding: '1rem',
             fontSize: '0.9rem',
             fontWeight: '600'
-        }
+        },
     });
 }
