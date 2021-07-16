@@ -13,6 +13,7 @@ export const ButtonComponent = (props) => {
             className={classes.button}
             variant="contained"
             color="primary"
+            disabled={props.disabled}
             onClick={props.onClick}>
             {props.buttonName}
         </Button>

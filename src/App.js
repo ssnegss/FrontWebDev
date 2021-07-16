@@ -8,6 +8,7 @@ function App() {
 
   const handleDateChange = (e) => {
     setValue(e.target.value);
+    setButtonStateActive(false);
   }
 
   const moveBack = (e) => {
@@ -20,6 +21,7 @@ function App() {
     setValue(e.target.value);
   }
   const [value, setValue] = useState("");
+  const [buttonState, setButtonStateActive] = useState(true);
 
   return (
     <div className="App">
@@ -28,6 +30,7 @@ function App() {
           <Button
             buttonName="back"
             onClick={moveBack}
+            disabled={buttonState}
           />
           <WeekCalendar
             value={value}
@@ -36,6 +39,7 @@ function App() {
           <Button
             buttonName="forward"
             onClick={moveForward}
+            disabled={buttonState}
           />
         </div>
         <Table />
