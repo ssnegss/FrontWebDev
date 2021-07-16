@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getTableComponentStyles as styles } from './TableComponentStyles';
-import { PopoverAddComponent as PopoverAdd, PopoverEditComponent as PopoverEdit } from '../PopoverComponent/PopoverComponent'
+import { PopoverAddComponent as PopoverAdd, PopoverEditComponent as PopoverEdit } from '../PopoverComponent/PopoverComponent';
 
 const useStyles = makeStyles((theme) => styles(theme))
 
@@ -40,12 +40,12 @@ export const TableComponent = (props) => {
   const [anchorElAdd, setAnchorElAdd] = React.useState(null);
   const [anchorElEdit, setAnchorElEdit] = React.useState(null);
 
-  const handleClickAdd = (event) => {
-    setAnchorElAdd(event.currentTarget);
+  const handleClickAdd = (e) => {
+    setAnchorElAdd(e.currentTarget);
   };
 
-  const handleClickEdit = (event) => {
-    setAnchorElEdit(event.currentTarget);
+  const handleClickEdit = (e) => {
+    setAnchorElEdit(e.currentTarget);
   };
 
   const handleClose = () => {
@@ -57,6 +57,14 @@ export const TableComponent = (props) => {
   const openEdit = Boolean(anchorElEdit);
   const idAdd = openAdd ? 'simple-popover' : undefined;
   const idEdit = openEdit ? 'simple-popover' : undefined;
+
+  const handleClick = (e) => {
+    if (e.firstChild) {
+      handleClickEdit(e);
+    } else {
+      handleClickAdd(e);
+    }
+};
 
   return (
     <div>
@@ -73,25 +81,25 @@ export const TableComponent = (props) => {
             {rows.map((row) => (
               <TableRow key={row.name}>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.sunday}</button>
+                  <button className={classes.tableRow} onClick={handleClick}>{row.sunday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.monday}</button>
+                  <button className={classes.tableRow} onClick={handleClick}>{row.monday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.tuesday}</button>
+                  <button className={classes.tableRow} onClick={handleClick}>{row.tuesday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.wednesday}</button>
+                  <button className={classes.tableRow} onClick={handleClick}>{row.wednesday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.thursday}</button>
+                  <button className={classes.tableRow} onClick={handleClick}>{row.thursday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleClickAdd}>{row.friday}</button>
+                  <button className={classes.tableRow} onClick={handleClick}>{row.friday}</button>
                 </TableCell>
                 <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleClickEdit}>{row.saturday}</button>
+                  <button className={classes.tableRow} onClick={handleClick}>{row.saturday}</button>
                 </TableCell>
               </TableRow>
             ))}

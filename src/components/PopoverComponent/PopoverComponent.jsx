@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import { ModalBoxComponent as ModalBox } from '../ModalBoxComponent/ModalBoxComponent';
+import './PopoverComponent.css';
 
 const useStyles = makeStyles((theme) => ({
     typography: {
@@ -29,7 +30,7 @@ export const PopoverAddComponent = (props) => {
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
                 transformOrigin={{ vertical: 'top', horizontal: 'center' }}>
                 <Typography className={classes.typography}>
-                    <button className="modal__button" onClick={handleModalBoxOpen}>Add</button>
+                    <button className="popover__button" onClick={handleModalBoxOpen}>Add</button>
                 </Typography>
             </Popover>
             <ModalBox active={modalAddActive} setActive={setModalAddActive} header="Add activity" buttonName="Add"></ModalBox>
@@ -56,8 +57,8 @@ export const PopoverEditComponent = (props) => {
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
                 transformOrigin={{ vertical: 'top', horizontal: 'center' }}>
                 <Typography className={classes.typography}>
-                    <button className="modal__button" onClick={handleModalBoxOpen}>Edit</button> <hr />
-                    <button className="modal__button" >Delete</button>
+                    <button className="popover__button" onClick={handleModalBoxOpen}>Edit</button> <hr />
+                    <button className="popover__button" >Delete</button>
                 </Typography>
             </Popover>
             <ModalBox active={modalEditActive} setActive={setModalEditActive} header="Edit activity" buttonName="Edit"></ModalBox>
