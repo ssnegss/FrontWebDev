@@ -22,7 +22,7 @@
     padding: 30px 20px;
     border-radius: 12px;
     background-color: rgb(255, 255, 255);
-    height: 44rem;
+    height: 50rem;
     width: 33rem;
 }
 
@@ -51,8 +51,8 @@ h3 {
 
 .modalBox__pictogram {
     margin: 1rem 2rem;
-    width: 9rem;
-    height: 9rem;
+    width: 14rem;
+    height: 14rem;
 }
 
 .modalBox__buttonContainer {
