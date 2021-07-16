@@ -23,5 +23,14 @@ export const getTableComponentStyles = (theme) => {
             fontSize: '0.9rem',
             fontWeight: '600'
         },
-    });
+        popover__button: {
+            width: '100%',
+            height: '100%',
+            cursor: 'pointer',
+            outline: 'none',
+            borderWidth: '0',
+            padding: '1rem 4rem',
+            backgroundColor: 'transparent'
+    }
+});
 }

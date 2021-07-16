@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,7 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { getTableComponentStyles as styles } from './TableComponentStyles';
-import { PopoverAddComponent as PopoverAdd, PopoverEditComponent as PopoverEdit } from '../PopoverComponent/PopoverComponent';
+import { ModalBoxComponent as ModalBox } from '../ModalBoxComponent/ModalBoxComponent';
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => styles(theme))
 
@@ -37,6 +39,7 @@ export const TableComponent = (props) => {
   var days = [{ day: 'Sunday' }, { day: 'Monday' }, { day: 'Tuesday' }, { day: 'Wednesday' }, { day: 'Thursday' }, { day: 'Friday' }, { day: 'Saturday' },];
 
   const classes = useStyles();
+
   const [anchorElAdd, setAnchorElAdd] = React.useState(null);
   const [anchorElEdit, setAnchorElEdit] = React.useState(null);
 
@@ -64,7 +67,19 @@ export const TableComponent = (props) => {
     } else {
       handleClickAdd(e);
     }
-};
+  };
+
+  const [modalEditActive, setModalEditActive] = useState(false);
+  const [modalAddActive, setModalAddActive] = useState(false);
+
+  const handleModalBoxEditOpen = () => {
+    setAnchorElEdit(null);
+    setModalEditActive(true)
+  }
+  const handleModalBoxAddOpen = () => {
+    setAnchorElAdd(null);
+    setModalAddActive(true)
+  }
 
   return (
     <div>
@@ -106,8 +121,35 @@ export const TableComponent = (props) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <PopoverAdd id={idAdd} open={openAdd} anchorEl={anchorElAdd} handleClose={handleClose}/>
-      <PopoverEdit id={idEdit} open={openEdit} anchorEl={anchorElEdit} handleClose={handleClose}/>
+      <div>
+        <Popover
+          id={idAdd}
+          open={openAdd}
+          anchorEl={anchorElAdd}
+          onClose={handleClose}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          transformOrigin={{ vertical: 'top', horizontal: 'center' }}>
+          <Typography className={classes.typography}>
+            <button className={classes.popover__button} onClick={handleModalBoxAddOpen}>Add</button>
+          </Typography>
+        </Popover>
+        <ModalBox active={modalAddActive} setActive={setModalAddActive} header="Add activity" buttonName="Add"></ModalBox>
+      </div>
+      <div>
+        <Popover
+          id={idEdit}
+          open={openEdit}
+          anchorEl={anchorElEdit}
+          onClose={handleClose}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+          transformOrigin={{ vertical: 'top', horizontal: 'center' }}>
+          <Typography className={classes.typography}>
+            <button className={classes.popover__button} onClick={handleModalBoxEditOpen}>Edit</button> <hr />
+            <button className={classes.popover__button} >Delete</button>
+          </Typography>
+        </Popover>
+        <ModalBox active={modalEditActive} setActive={setModalEditActive} header="Edit activity" buttonName="Edit"></ModalBox>
+      </div>
     </div>
   );
 }
