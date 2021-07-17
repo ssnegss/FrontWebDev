@@ -17,27 +17,39 @@ const useStyles = makeStyles((theme) => styles(theme))
 export const TableComponent = (props) => {
 
   const days = [
-    { id: 0, day: 'Sunday'},
-    { id: 1, day: 'Monday'},
-    { id: 2, day: 'Tuesday'},
-    { id: 3, day: 'Wednesday'},
-    { id: 4, day: 'Thursday'},
-    { id: 5, day: 'Friday'},
-    { id: 6, day: 'Saturday'}];
+    { id: 0, day: 'Sunday' },
+    { id: 1, day: 'Monday' },
+    { id: 2, day: 'Tuesday' },
+    { id: 3, day: 'Wednesday' },
+    { id: 4, day: 'Thursday' },
+    { id: 5, day: 'Friday' },
+    { id: 6, day: 'Saturday' }];
 
-  const daysTime = [ 
-    {id: 0, time: "9:00-10:00"}, 
-    {id: 1, time: "10:00-11:00"}, 
-    {id: 2, time: "11:00-12:00"}, 
-    {id: 3, time: "12:00-13:00"}, 
-    {id: 4, time: "13:00-14:00"}, 
-    {id: 5, time: "14:00-15:00"}, 
-    {id: 6, time: "15:00-16:00"}, 
-    {id: 7, time: "16:00-17:00"}, 
-    {id: 8, time: "17:00-18:00"}, 
-    {id: 9, time: "18:00-19:00"}, 
-    {id: 10, time: "19:00-20:00"}, 
-    {id: 11, time: "20:00-21:00"}]
+  const daysTime = [
+    { id: 0, time: "9:00 - 10:00" },
+    { id: 1, time: "10:00 - 11:00" },
+    { id: 2, time: "11:00 - 12:00" },
+    { id: 3, time: "12:00 - 13:00" },
+    { id: 4, time: "13:00 - 14:00" },
+    { id: 5, time: "14:00 - 15:00" },
+    { id: 6, time: "15:00 - 16:00" },
+    { id: 7, time: "16:00 - 17:00" },
+    { id: 8, time: "17:00 - 18:00" },
+    { id: 9, time: "18:00 - 19:00" },
+    { id: 10, time: "19:00 - 20:00" },
+    { id: 11, time: "20:00 - 21:00" }]
+
+  function getStartTime(dateStr) {
+    let dates = dateStr.split(" - ");
+    let start = dates[0];
+    return { start };
+  }
+
+  function getEndTime(dateStr) {
+    let dates = dateStr.split(" - ");
+    let end = dates[1];
+    return { end };
+  }
 
   const classes = useStyles();
 
@@ -63,15 +75,22 @@ export const TableComponent = (props) => {
   const idEdit = openEdit ? 'simple-popover' : undefined;
 
   const handleClick = (e) => {
+    var time = e.target.value;
+    setStartTime(getStartTime(time).start)
+    setEndTime(getEndTime(time).end)
+
     if (e.firstChild) {
       handleClickEdit(e);
     } else {
       handleClickAdd(e);
     }
+    console.log(getEndTime(time).end)
   };
 
   const [modalEditActive, setModalEditActive] = useState(false);
   const [modalAddActive, setModalAddActive] = useState(false);
+  const [startTime, setStartTime] = useState('');
+  const [endTime, setEndTime] = useState('');
 
   const handleModalBoxEditOpen = () => {
     setAnchorElEdit(null);
@@ -95,13 +114,12 @@ export const TableComponent = (props) => {
           </TableHead>
           <TableBody>
             {daysTime.map((daysTime) => (
-              <TableRow>
-                {days.map(() => (
-                <TableCell className={classes.table}>
-                  <button className={classes.tableRow} onClick={handleClick}>{daysTime.time}</button>
-                </TableCell>))}
-              </TableRow>
-            ))}
+          <TableBody> {daysTime.map((daysTime) => (
+            <TableRow>
+              {days.map(() => (
+                <TableCell className={classes.table}><button className={classes.tableRow} value={daysTime.time} onClick={handleClick}>{daysTime.time}</button></TableCell>
+              ))}
+            </TableRow>))}
           </TableBody>
         </Table>
       </TableContainer>
@@ -117,7 +135,7 @@ export const TableComponent = (props) => {
             <button className={classes.popover__button} onClick={handleModalBoxAddOpen}>Add</button>
           </Typography>
         </Popover>
-        <ModalBox active={modalAddActive} setActive={setModalAddActive} header="Add activity" buttonName="Add"></ModalBox>
+        <ModalBox active={modalAddActive} setActive={setModalAddActive} header="Add activity" buttonName="Add" valueStart={startTime} valueEnd={endTime}></ModalBox>
       </div>
       <div>
         <Popover

@@ -12,7 +12,6 @@ export const ModalBoxTextFieldComponent = (props) => {
         <div className={classes.formControl}>
             <Input
                 className={classes.selectTheme}
-                id="outlined-search"
                 label="Search field"
                 variant="outlined"
                 value={props.value}

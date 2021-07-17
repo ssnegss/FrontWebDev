@@ -2,7 +2,7 @@ import React from 'react';
 import { ButtonComponent as Button } from '../ButtonComponent/ButtonComponent';
 import { ModalBoxTextFieldComponent as TextField } from '../ModalBoxTextFieldComponent/ModalBoxTextFieldComponent';
 import { SelectComponent as Select } from '../SelectComponent/SelectComponent';
-import { ModalBoxTimeFieldComponent as TimeField } from '../ModalBoxTimeFieldComponent/ModalBoxTimeFieldComponent';
+import { ModalBoxTimeStartFieldComponent as TimeStart, ModalBoxTimeEndFieldComponent as TimeEnd} from '../ModalBoxTimeFieldComponent/ModalBoxTimeFieldComponent';
 import './ModalBoxComponent.css';
 import { PictogramSelectComponent as Pictogram} from '../PictogramSelectComponent/PictogramSelectComponent'
 import breakfast from '../../img/breakfast.png'
@@ -15,7 +15,7 @@ import wakeUp from '../../img/wake-up.png'
 import walk from '../../img/walk.png'
 import workout from '../../img/workout.png'
 
-export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => {
+export const ModalBoxComponent = ({ active, setActive, header, buttonName, valueStart, valueEnd }) => {
     const handleModalBoxClose = () => {
         setActive(false)
     }
@@ -28,9 +28,9 @@ export const ModalBoxComponent = ({ active, setActive, header, buttonName }) => 
                 <h3>Time</h3>
                 <div className="modalBox__timeContainer">
                     <h3 className="modalBox__time_from">From</h3>
-                    <TimeField className="modalBox__time" />
+                    <TimeStart className="modalBox__time" value={valueStart} />
                     <h3 className="modalBox__time_to">to</h3>
-                    <TimeField className="modalBox__time" />
+                    <TimeEnd className="modalBox__time" value={valueEnd}/>
                 </div>
                 <h3>Pictogram</h3>
                 <Pictogram

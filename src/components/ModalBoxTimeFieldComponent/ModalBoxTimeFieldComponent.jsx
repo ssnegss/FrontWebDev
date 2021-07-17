@@ -5,17 +5,33 @@ import { makeModalBoxTimeFieldComponentStyles as styles } from './ModalBoxTimeFi
 
 const useStyles = makeStyles((theme) => styles(theme));
 
-export const ModalBoxTimeFieldComponent = (props) => {
+export const ModalBoxTimeStartFieldComponent = (props) => {
     const classes = useStyles();
 
     return (
         <div className={classes.formControl}>
             <Input
                 className={classes.selectTheme}
-                id="outlined-search"
                 label="Search field"
                 variant="outlined"
                 value={props.value}
+                readOnly
+            />
+        </div>
+    )
+}
+
+export const ModalBoxTimeEndFieldComponent = (props) => {
+    const classes = useStyles();
+
+    return (
+        <div className={classes.formControl}>
+            <Input
+                className={classes.selectTheme}
+                label="Search field"
+                variant="outlined"
+                value={props.value}
+                readOnly
             />
         </div>
     )
