@@ -17,6 +17,7 @@ export const TextFieldComponent = (props) => {
                 variant="outlined"
                 value={props.value}
                 onChange={props.onChange}
+                required
             />
         </div>
     )

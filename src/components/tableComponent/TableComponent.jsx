@@ -11,6 +11,9 @@ import { getTableComponentStyles as styles } from './TableComponentStyles';
 import { ModalBoxComponent as ModalBox } from '../ModalBoxComponent/ModalBoxComponent';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
+import { createActivity, deleteActivity, getWeek } from "../../services/api";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 const useStyles = makeStyles((theme) => styles(theme))
 
@@ -61,17 +64,16 @@ export const TableComponent = (props) => {
     activity9: { time: "17:00 - 18:00" },
     activity10: { time: "18:00 - 19:00" },
     activity11: { time: "19:00 - 20:00" },
-    activity12: { time: "20:00 - 21:00" }}
+    activity12: { time: "20:00 - 21:00" }
+  }
 
-    daysObject.sunday=timeObject;
-    daysObject.monday=timeObject;
-    daysObject.tuesday=timeObject;
-    daysObject.wednesday=timeObject;
-    daysObject.thursday=timeObject;
-    daysObject.friday=timeObject;
-    daysObject.saturday=timeObject;
-
-    console.log(daysObject)
+  daysObject.sunday = timeObject;
+  daysObject.monday = timeObject;
+  daysObject.tuesday = timeObject;
+  daysObject.wednesday = timeObject;
+  daysObject.thursday = timeObject;
+  daysObject.friday = timeObject;
+  daysObject.saturday = timeObject;
 
   function getStartTime(dateStr) {
     let dates = dateStr.split(" - ");
@@ -118,7 +120,6 @@ export const TableComponent = (props) => {
     } else {
       handleClickAdd(e);
     }
-    console.log(getEndTime(time).end)
   };
 
   const [modalEditActive, setModalEditActive] = useState(false);
@@ -146,7 +147,7 @@ export const TableComponent = (props) => {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody> {daysTime.map((daysTime) => (
+          <TableBody>{daysTime.map((daysTime, index) => (
             <TableRow>
               {days.map(() => (
                 <TableCell className={classes.table}><button className={classes.tableRow} value={daysTime.time} onClick={handleClick}>{daysTime.time}</button></TableCell>
@@ -179,7 +180,7 @@ export const TableComponent = (props) => {
           transformOrigin={{ vertical: 'top', horizontal: 'center' }}>
           <Typography className={classes.typography}>
             <button className={classes.popover__button} onClick={handleModalBoxEditOpen}>Edit</button> <hr />
-            <button className={classes.popover__button} >Delete</button>
+            <button className={classes.popover__button}>Delete</button>
           </Typography>
         </Popover>
         <ModalBox active={modalEditActive} setActive={setModalEditActive} header="Edit activity" buttonName="Edit"></ModalBox>
