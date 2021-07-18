@@ -39,6 +39,40 @@ export const TableComponent = (props) => {
     { id: 10, time: "19:00 - 20:00" },
     { id: 11, time: "20:00 - 21:00" }]
 
+  const daysObject = {
+    sunday: {},
+    monday: {},
+    tuesday: {},
+    wednesday: {},
+    thursday: {},
+    friday: {},
+    saturday: {}
+  };
+
+  const timeObject = {
+    activity1: { time: "9:00 - 10:00" },
+    activity2: { time: "10:00 - 11:00" },
+    activity3: { time: "11:00 - 12:00" },
+    activity4: { time: "12:00 - 13:00" },
+    activity5: { time: "13:00 - 14:00" },
+    activity6: { time: "14:00 - 15:00" },
+    activity7: { time: "15:00 - 16:00" },
+    activity8: { time: "16:00 - 17:00" },
+    activity9: { time: "17:00 - 18:00" },
+    activity10: { time: "18:00 - 19:00" },
+    activity11: { time: "19:00 - 20:00" },
+    activity12: { time: "20:00 - 21:00" }}
+
+    daysObject.sunday=timeObject;
+    daysObject.monday=timeObject;
+    daysObject.tuesday=timeObject;
+    daysObject.wednesday=timeObject;
+    daysObject.thursday=timeObject;
+    daysObject.friday=timeObject;
+    daysObject.saturday=timeObject;
+
+    console.log(daysObject)
+
   function getStartTime(dateStr) {
     let dates = dateStr.split(" - ");
     let start = dates[0];
@@ -112,8 +146,6 @@ export const TableComponent = (props) => {
               ))}
             </TableRow>
           </TableHead>
-          <TableBody>
-            {daysTime.map((daysTime) => (
           <TableBody> {daysTime.map((daysTime) => (
             <TableRow>
               {days.map(() => (
