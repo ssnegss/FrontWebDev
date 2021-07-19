@@ -8,6 +8,18 @@ import { useEffect } from "react";
 
 function App() {
 
+  const [value, setValue] = useState('');
+  const [buttonState, setButtonStateActive] = useState(true);
+  const [currentWeek, setCurrentWeek] = useState(0);
+  const [currentYear, setCurrentYear] = useState(0);
+
+  function getWeekAndYear(dateStr) {
+    let dates = dateStr.split("-W");
+    let year = dates[0];
+    let week = dates[1];
+    return { year, week };
+  }
+  
   const fetchWeek = async () => {
     const response = await getWeek(currentWeek, currentYear);
 
@@ -16,16 +28,7 @@ function App() {
 
   useEffect(() => {
     fetchWeek();
-  }, []);
-
-  function getWeekAndYear(dateStr) {
-    let dates = dateStr.split("-W");
-    let year = dates[0];
-    let week = dates[1];
-    return { year, week };
-  }
-
-  // console.log(currentWeek, currentYear)
+  });
 
   const handleDateChange = (e) => {
     setValue(e.target.value);
@@ -33,10 +36,6 @@ function App() {
     setCurrentWeek(getWeekAndYear(currentDate).week);
     setCurrentYear(getWeekAndYear(currentDate).year);
     setButtonStateActive(false);
-    
-    // console.log(currentDate)
-    // console.log(getWeekAndYear(currentDate).week)
-    // console.log(getWeekAndYear(currentDate).year)
   }
 
   const moveBack = (e) => {
@@ -45,10 +44,6 @@ function App() {
     let currentDate = document.getElementById("weekField").value;
     setCurrentWeek(getWeekAndYear(currentDate).week);
     setCurrentYear(getWeekAndYear(currentDate).year);
-
-    // console.log(currentDate)
-    // console.log(getWeekAndYear(currentDate).week)
-    // console.log(getWeekAndYear(currentDate).year)
   }
 
   const moveForward = (e) => {
@@ -57,17 +52,7 @@ function App() {
     let currentDate = document.getElementById("weekField").value;
     setCurrentWeek(getWeekAndYear(currentDate).week);
     setCurrentYear(getWeekAndYear(currentDate).year);
-
-    // console.log(currentDate)
-    // console.log(getWeekAndYear(currentDate).week)
-    // console.log(getWeekAndYear(currentDate).year)
-    // console.log(currentWeek)
   }
-
-  const [value, setValue] = useState('');
-  const [buttonState, setButtonStateActive] = useState(true);
-  const [currentWeek, setCurrentWeek] = useState("");
-  const [currentYear, setCurrentYear] = useState("");
 
   return (
     <div className="App">
